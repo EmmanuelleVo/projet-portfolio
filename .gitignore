@@ -1,0 +1,12 @@
+/*
+!.gitignore
+
+!wp-content
+wp-content/*
+!wp-content/themes
+wp-content/themes/*
+!wp-content/themes/portfolio
+
+!README.md
+!package.json
+!webpack.mix.js

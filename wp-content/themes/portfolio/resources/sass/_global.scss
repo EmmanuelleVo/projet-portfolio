@@ -1,0 +1,41 @@
+.sro {
+  position: absolute;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  height: 1px; width: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0;
+}
+
+.all { /*a sur toute l'img ou svg*/
+  @include absolute-position();
+}
+
+html {
+  font-size: 18px;
+}
+
+body {
+  //@include text-body;
+  scroll-behavior: smooth;
+}
+
+.empty {
+
+}
+
+h1.page__title {
+}
+
+h2 {
+  font-size: rem($h2);
+}
+
+h3 {
+
+}
+
+.button {
+  //@include button()
+}

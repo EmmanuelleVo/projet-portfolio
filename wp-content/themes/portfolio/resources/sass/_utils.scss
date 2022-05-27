@@ -1,0 +1,153 @@
+$fonts-path: "../../fonts/";
+
+/* FONT */
+$h1: 40;
+$h2: 32;
+$h3: 24;
+$p: 18;
+
+$font_title: '';
+$font_body: '';
+
+/* COLOR */
+$main_color: rgba(255,137,131, 1);
+$second_color: rgba(255,234,214, 1);
+$bg_color: #fff;
+$dark_color: #383F51;
+$white_color: #fff;
+$error_color: #C25452;
+
+/* ALIGNMENT */
+$vertical_align: '';
+
+
+
+/*
+lighten(color, 10%)
+darken(color, 10%)
+transparentize(color, 0.2)
+
+PREFIX : transition, flex, scale, animation, grid, placeholder, user-select,
+*/
+
+
+/* MIXIN */
+
+@mixin font-face($name, $file) {
+  @font-face {
+    font-family: "#{$name}";
+    src: url("../fonts/#{$file}.eot");
+    src: url("../fonts/#{$file}.eot?#iefix") format("embedded-opentype"),
+    url("../fonts/#{$file}.woff") format("woff"),
+    url("../fonts/#{$file}.ttf") format("truetype"),
+    url("../fonts/#{$file}.svg?#webfont") format("svg");
+  }
+}
+
+$fonts-stack: (
+        icons: (
+                font: (
+                        family: 'iconfont',
+                        weight: normal,
+                        file: 'iconfont',
+                        style: normal,
+                        bust: true
+                )
+        )
+);
+
+@function rem($value) {
+  $remValue: ($value / 18) + rem;
+  @return $remValue;
+}
+
+// Truncates text overflow (and add ellipses by default).
+@mixin truncate($overflow: ellipsis) {
+  overflow: hidden;
+  text-overflow: $overflow;
+  white-space: nowrap;
+}
+
+@mixin absolute-position($top: 0, $right: 0, $bottom: 0, $left: 0) {
+  bottom: $bottom;
+  left: $left;
+  position: absolute;
+  right: $right;
+  top: $top;
+}
+
+@mixin margin-auto($number: 0) {
+  margin: $number auto
+}
+
+@mixin css3-prefix($prop, $value) {
+  -webkit-#{$prop}: #{$value};
+  -moz-#{$prop}: #{$value};
+  -ms-#{$prop}: #{$value};
+  -o-#{$prop}: #{$value};
+  #{$prop}: #{$value};
+}
+
+@mixin flex($justify-content: space-between, $align-items: center) {
+  @include css3-prefix(display, flex);
+  @include css3-prefix(justify-content, $justify-content);
+  @include css3-prefix(align-items, $align-items);
+}
+
+// ----- Keyframes & prefixes -----
+@mixin keyframes( $name ){
+  @-webkit-keyframes #{$name} {
+    @content;
+  }
+  @-moz-keyframes #{$name} {
+    @content;
+  }
+  @-ms-keyframes #{$name} {
+    @content;
+  }
+  @-o-keyframes #{$name} {
+    @content;
+  }
+  @-keyframes #{$name} {
+    @content;
+  }
+}
+
+// Design of a text element of an article
+@mixin text-body {
+  b, strong {
+    font-weight: 700;
+  }
+  a {
+    text-decoration: none;
+    color: inherit;
+    font-weight: 500;
+    padding: .2rem;
+    :hover {
+
+    }
+  }
+  em, i {
+    font-style: italic;
+  }
+
+}
+
+@mixin centered-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin button($dark: $dark_color, $white: $white_color) {
+  padding: 0.5rem 2rem;
+  background-color: $dark;
+  color: $white;
+  text-decoration: none;
+}
+
+
+
+
+
+
