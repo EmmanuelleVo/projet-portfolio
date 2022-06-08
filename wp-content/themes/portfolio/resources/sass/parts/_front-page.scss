@@ -1,0 +1,63 @@
+.intro {
+  height: calc(100vh - 230px); //130px
+  //@include global-spacing;
+  padding-bottom: rem($vertical_align_50);
+  &__container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+
+  }
+  &__title {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: rem(50);
+    font-weight: 500;
+    font-size: rem($h1);
+    &__name {
+
+    }
+    &__job {
+
+    }
+  }
+
+
+}
+
+
+
+.last-project {
+  background-color: $dark_color;
+  //@include global-spacing;
+  padding: rem($vertical_align_30) 24px;
+  &__title {
+    color: $white_color;
+    margin-bottom: rem($vertical_align_30);
+  }
+  &__link {
+    background-color: $white_color;
+    color: $dark_color;
+  }
+  &__button {
+    background-color: $white_color;
+    color: $dark_color;
+  }
+  &__empty {
+    color: $white_color;
+  }
+}
+
+
+
+@media (min-width: 1200px) {
+    //overflow: hidden;
+    .big-screen {
+      margin: 0 auto;
+      max-width: 1199px;
+    }
+
+}

@@ -1,4 +1,4 @@
-$fonts-path: "../../fonts/";
+$fonts-path: "../fonts/";
 
 /* FONT */
 $h1: 40;
@@ -9,16 +9,22 @@ $p: 18;
 $font_title: '';
 $font_body: '';
 
+
+
+
 /* COLOR */
 $main_color: rgba(255,137,131, 1);
 $second_color: rgba(255,234,214, 1);
 $bg_color: #fff;
 $dark_color: #383F51;
-$white_color: #fff;
+$white_color: #ffffff;
 $error_color: #C25452;
+$light-grey : #f3f3f3;
 
 /* ALIGNMENT */
-$vertical_align: '';
+$vertical_align_50: 50;
+$vertical_align_30: 30;
+$vertical_align_20: 20;
 
 
 
@@ -80,6 +86,11 @@ $fonts-stack: (
   margin: $number auto
 }
 
+@mixin global-spacing() {
+  width: calc(100vw - 48px); // 24px
+  padding: 0 24px;
+}
+
 @mixin css3-prefix($prop, $value) {
   -webkit-#{$prop}: #{$value};
   -moz-#{$prop}: #{$value};
@@ -115,6 +126,7 @@ $fonts-stack: (
 
 // Design of a text element of an article
 @mixin text-body {
+  font-family: "Helvetica Neue", serif;
   b, strong {
     font-weight: 700;
   }
@@ -141,11 +153,30 @@ $fonts-stack: (
 
 @mixin button($dark: $dark_color, $white: $white_color) {
   padding: 0.5rem 2rem;
+  //height: 40px;
   background-color: $dark;
   color: $white;
   text-decoration: none;
+  text-align: center;
+  &:hover {
+    background-color: $second_color;
+    color: $dark;
+  }
 }
 
+@mixin h1-title {
+  font-family: Raleway, Lato, sans-serif;
+  font-size: rem($h1);
+}
+
+@mixin h2-title {
+  font-family: Raleway, Lato, sans-serif;
+  font-size: rem($h2);
+}
+@mixin h3-title {
+  font-family: Raleway, Lato, sans-serif;
+  font-size: rem($h3);
+}
 
 
 

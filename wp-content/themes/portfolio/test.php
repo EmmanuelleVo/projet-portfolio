@@ -50,3 +50,40 @@
         </div>
     </nav>
 </header>
+
+
+
+<!-- all projects  -->
+
+
+<article class="project">
+    <a href="<?= get_the_permalink() ?>" class="project__link "><?= __('Lire l’article', 'pf') ?> "<?= get_the_title() ?>"</a>
+    <div class="project__card">
+        <img src="#" alt="Image du projet" class="project__img">
+        <h3 class="project__title"><?= get_the_title() ?></h3>
+    </div>
+</article>
+
+<article class="last-project__article">
+    <a href="<?= get_the_permalink() ?>" class="last-project__link button"><?= __('Lire l’article', 'pf') ?> <span class="sro"><?= get_the_title() ?></span></a>
+    <div class="last-project__card">
+        <img src="#" alt="Image du projet" class="last-project__img">
+        <h3 class="last-project__title"><?= get_the_title() ?></h3>
+    </div>
+</article>
+
+
+
+
+<!-- POST LINKS -->
+
+<a href="<?= get_previous_post() ?>"
+   class="button single-project__button last"><?= __('Précédent', 'pf') ?></a>
+<a href="<?= get_next_post_link() ?>"
+   class="button single-project__button next"><?= __('Suivant', 'pf') ?></a>
+<a href="<?= get_post_type_archive_link('project') ?>"
+   class="button single-project__button see-all"><?= __('Voir tous les projets', 'pf') ?></a>
+
+
+
+

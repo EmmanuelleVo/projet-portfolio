@@ -1,23 +1,50 @@
 .lang {
   &__container {
     position: relative;
-    text-transform: uppercase;
     display: inline-flex;
   }
+
+  .arrow-down {
+    width: 0;
+    height: 0;
+    border-left: 7px solid transparent;
+    border-right: 7px solid transparent;
+    border-top: 8px solid $dark_color;
+    margin: auto auto auto .5rem;
+    cursor: pointer;
+    @include absolute-position($left: 1.3rem);
+
+  }
+
+  .arrow-up {
+    width: 0;
+    height: 0;
+    border-left: 7px solid transparent;
+    border-right: 7px solid transparent;
+    border-bottom: 8px solid black;
+    margin: auto auto auto .5rem;
+    cursor: pointer;
+    @include absolute-position($left: 1.3rem);
+
+  }
+
 
   &__current {
     color: $dark_color;
     text-decoration: none;
     transition: all 0.4s;
+    position: relative;
+    padding-right: 1.3rem;
 
     &:hover, &:focus {
       color: $main_color;
-      text-decoration: underline;
     }
+
   }
 
   &__other {
     z-index: -1;
+    text-decoration: none;
     position: absolute;
     right: -50%;
     display: flex;
@@ -26,26 +53,34 @@
     opacity: 1;
     transform: translateY(1.75rem);
     transition: transform 200ms ease-out, opacity 200ms ease-out;
+    box-shadow: $dark_color 0 1px 4px -2px;
   }
 
-  &__li {
-    margin-bottom: 0.25em;
+  &__li + &__li {
+    //padding: 0.5rem 1.5rem;
+    //background-color: white;
+    margin-top: 1.4rem;
+    /*&:hover, &:focus {
+      background-color: $light-grey;
+    }*/
   }
 
-  &__link {
-    display: block;
-    border: 1px solid $dark_color;
-    border-radius: 50%;
-    background-color: rgba(0, 0,0, 0.35);
-    backdrop-filter: blur(1px);
-    padding: calc(1rem / 2);
+  .nav__locale {
+    //backdrop-filter: blur(1px);
+    //padding: calc(1rem / 2);
+    padding: 0.5rem 1.5rem;
+    background-color: white;
     transition: all 0.2s;
+    text-decoration: none;
 
     &:hover, &:focus {
-      text-decoration: underline;
       color: $dark_color;
-      background-color: $white_color;
+      background-color: $light-grey;
       box-shadow: 0 0 10px rgba(255, 255, 255, 0.75);
+    }
+
+    .current__lang {
+      background-color: #F3F3F3FF;
     }
   }
 

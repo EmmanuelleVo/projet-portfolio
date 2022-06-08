@@ -15,6 +15,8 @@ require('laravel-mix-pluton');
 mix.pluton('wp-content/themes/portfolio/resources/js/parts')
     .js('wp-content/themes/portfolio/resources/js/app.js', 'wp-content/themes/portfolio/public/js')
     .sass('wp-content/themes/portfolio/resources/sass/theme.scss', 'wp-content/themes/portfolio/public/css')
+    .copyDirectory('wp-content/themes/portfolio/resources/fonts', 'wp-content/themes/portfolio/public/fonts')
+    .copyDirectory('wp-content/themes/portfolio/resources/img', 'wp-content/themes/portfolio/public/img')
     .browserSync({
         proxy: 'portfolio.localhost',
         notify: false

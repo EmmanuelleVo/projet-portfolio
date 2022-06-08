@@ -1,0 +1,49 @@
+.contact-section {
+  position: relative;
+  height: rem(126);
+  @include flex(center);
+  //@include global-spacing;
+
+  &__container {
+  }
+
+  &__content {
+    @include margin-auto();
+    display: inline-block;
+    font-size: rem($h2);
+    text-align: center;
+  }
+
+  &__link {
+    font-size: rem($h2);
+    position: relative;
+    transition:all 0.5s;
+
+    &:before {
+      content:" ";
+      display:block;
+      position:absolute;
+      border-bottom:solid 3px #ddd;
+      bottom:0;
+      width:0;
+      left:50%;
+      margin:0 auto;
+      transition:all 0.5s;
+      z-index:-1;
+    }
+
+
+    &:hover, &:focus {
+      border-bottom:solid 3px #000;
+      width: 100%;
+      left: 0;
+    }
+  }
+
+}
+
+@media (max-width: 789px) {
+  .contact-section {
+    @include global-spacing;
+  }
+}

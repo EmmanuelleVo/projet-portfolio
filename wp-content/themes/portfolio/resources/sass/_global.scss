@@ -14,15 +14,25 @@
 
 html {
   font-size: 18px;
+  margin: 0;
 }
 
 body {
   //@include text-body;
   scroll-behavior: smooth;
+  color: $dark_color;
+  line-height: 1.2;
+}
+.layout {
+  padding-top: rem(130); //80 + 50
 }
 
 .empty {
 
+}
+
+h1 {
+  @include h1-title;
 }
 
 h1.page__title {
@@ -30,12 +40,44 @@ h1.page__title {
 
 h2 {
   font-size: rem($h2);
+  @include h2-title;
 }
 
 h3 {
+  @include h3-title;
+}
 
+a {
+  color: $dark_color;
+  text-decoration: none;
 }
 
 .button {
-  //@include button()
+  @include button()
+}
+
+@font-face {
+  font-family: "Calibre";
+  src: url("../fonts/Calibre.woff") format("woff");
+  src: url("../fonts/Calibre.woff2") format("woff2");
+  font-display: swap;
+}
+@font-face {
+  font-family: "TAN - PEARL";
+  src: url("./../fonts/TAN-PEARL.woff") format("woff");
+  src: url("./../fonts/TAN-PEARL.woff2") format("woff2");
+  font-display: swap;
+}
+
+
+h1, h2, h3, h4, a, p, input, label, dd, dt, span {
+  color: $dark_color;
+}
+p {
+  font-family: "TAN - PEARL", sans-serif;
+}
+.image {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
 }

@@ -34,18 +34,22 @@
 }*/
 
 
-.header{
+.header {
+  background-color: $white_color;
+  min-height: rem(80);
+  box-shadow: 0 4px 4px -5px grey;
   z-index: 100;
   position: fixed;
   width: calc(100vw - 48px);
   padding: 0 24px;
-  background-color: rgba(0, 0, 0, 0.65);
+  //background-color: rgba(0, 0, 0, 0.65);
   //font-family: $title;
   font-size: 1rem;
   //font-weight: 500;
   letter-spacing: 1px;
   transition: all .65s ease;
-  &__menu{
+
+  &__menu {
     min-height: 58px;
     height: 100%;
     display: flex;
@@ -54,34 +58,61 @@
     flex-wrap: wrap;
   }
 }
-.menu{
-  &__logo{
-    font-size: $h2;
+
+.menu {
+  &__logo {
+    position: relative;
   }
-  &__nav{
-    display: flex;
+
+  &__nav {
+    /*display: flex;
     flex-shrink: 1;
-    flex-wrap: wrap;
+    flex-wrap: wrap;*/
   }
-  &__wrapper{
+
+  &__wrapper {
     display: flex;
     color: $dark_color;
     font-size: 1rem;
     //font-weight: 500;
   }
 }
+
 .nav {
-  &__links{
-    &:after{
+  &__list {
+    display: flex;
+  }
+
+  &__item {
+    padding-right: rem(50);
+    list-style: none;
+    position: relative;
+
+    /*&:after{
       padding: 0 1rem;
+      content: '\2022';
+      font-size: 0.75rem;
+      color: $main_color;
+    }*/
+  }
+
+  &__item--current {
+
+    font-weight: bold;
+
+    &:before {
+      padding: 0 .5rem;
       content: '\2022';
       font-size: 0.75rem;
       color: $main_color;
     }
   }
+
   &__link {
     color: $dark_color;
-    &:hover, &:focus{
+    text-decoration: none;
+
+    &:hover, &:focus {
       cursor: pointer;
       text-decoration: underline;
       color: $main_color;
@@ -90,16 +121,14 @@
 }
 
 
-
-
-
-
-
-
-
-
-
-
+@media (min-width: 1200px) {
+  .header {
+    .header__menu {
+      margin: 0 auto;
+      max-width: 1199px;
+    }
+  }
+}
 
 
 /////////

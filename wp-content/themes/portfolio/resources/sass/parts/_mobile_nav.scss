@@ -26,7 +26,8 @@
       right: 0;
       height: 100vh;
       width:100vw;
-      background: radial-gradient(rgb(5, 12, 26), #000);
+      //background: radial-gradient(rgb(5, 12, 26), #000);
+      background-color: #E7E7E7FF;
       border-left: 1px solid rgba(255, 255, 255, 0.25);
       //animation: leftBorder 5s infinite;
       display: flex;
@@ -44,13 +45,19 @@
     }
   }
   .nav{
-    &__links{
+    .nav__list {
+      display: flex;
+      flex-direction: column;
+    }
+
+    &__item{
       margin: 1rem 0;
-      &::after{
+      &::before{
         display: none;
       }
     }
     &__link{
+      color: $dark_color;
       &:hover{
         cursor: pointer;
       }
@@ -60,9 +67,12 @@
     margin-top: 2rem;
     &__container{
       display: block;
+      &__current{
+        //display: none;
+      }
     }
     &__current{
-      display: none;
+      //display: none;
     }
     &__other{
       flex-direction: row;
@@ -81,7 +91,7 @@
   .burger{
     z-index: 10;
     overflow: hidden;
-    border-radius: 50%;
+    //border-radius: 50%;
     padding: 0.25rem;
     height: 2rem;
     width: 2rem;
@@ -91,10 +101,8 @@
     align-items: flex-end;
 
     &:focus, &:hover {
-      background-color: white;
-      box-shadow: 0 0 10px rgba(255, 255, 255, 0.75);
       & .burger__lines{
-        background-color: $dark_color;
+        background-color: #7580a4;
       }
     }
     &__lines{
@@ -102,7 +110,7 @@
       content: "";
       width:125%;
       height: 2px;
-      background-color: $white_color;
+      background-color: $dark_color;
       &:nth-child(2){
         width:80%;
       }

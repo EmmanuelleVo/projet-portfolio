@@ -1,0 +1,128 @@
+.circle__animation {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: -1;
+}
+
+.circle {
+  position: absolute;
+  display: block;
+  width: 20px;
+  height: 20px;
+  border-radius: 70%;
+  list-style: none;
+  z-index: -1;
+  bottom: 0;
+}
+.left {
+  animation: animate-left linear infinite;
+}
+.right {
+  animation: animate-right linear infinite;
+}
+
+.circle__one {
+  background-color: $main_color;
+  opacity: 0.7;
+  left: 25%;
+  bottom: 20%;
+  width: 80px;
+  height: 80px;
+  animation-delay: 2s;
+}
+.circle__two {
+  background-color: $second_color;
+  opacity: 0.7;
+  left: 30%;
+  bottom: 20%;
+  width: 150px;
+  height: 150px;
+  animation-delay: 2s;
+}
+.circle__three {
+  background-color: $main_color;
+  opacity: 0.7;
+  left: 90%;
+  width: 200px;
+  height: 200px;
+}
+.circle__four {
+  background-color: $main_color;
+  opacity: 0.7;
+  left: 80%;
+  width: 230px;
+  height: 230px;
+}
+.circle__five {
+  background-color: $second_color;
+  opacity: 0.7;
+  left: 50%;
+  bottom: 50%;
+  width: 50px;
+  height: 50px;
+  animation-delay: 1s;
+}
+.circle__six {
+  background-color: $second_color;
+  opacity: 0.7;
+  left: 53%;
+  bottom: 50%;
+  width: 75px;
+  height: 75px;
+  animation-delay: 1.5s;
+}
+.circle__seven {
+  background-color: $white_color;
+  border: $main_color 2px solid;
+  left: 60%;
+  bottom: 40%;
+  width: 80px;
+  height: 80px;
+  animation-delay: 2s;
+}
+.circle__eight {
+  background-color: $main_color;
+  opacity: 0.7;
+  left: 65%;
+  bottom: 40%;
+  width: 80px;
+  height: 80px;
+  animation-delay: 2s;
+}
+.circle__nine {
+  background-color: $second_color;
+  opacity: 0.7;
+  left: 5%;
+  bottom: 70%;
+  width: 100px;
+  height: 100px;
+}
+.circle__ten {
+  background-color: $main_color;
+  opacity: 0.7;
+  left: 10%;
+  bottom: 70%;
+  width: 120px;
+  height: 120px;
+}
+
+@keyframes animate-right {
+  0% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  100% {
+    transform: translate(200px, -100px) rotate(720deg);
+  }
+}
+@keyframes animate-left {
+  0% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  100% {
+    transform: translate(-200px, 200px) rotate(720deg);
+  }
+}

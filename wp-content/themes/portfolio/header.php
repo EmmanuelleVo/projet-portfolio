@@ -13,35 +13,35 @@
     <meta name="author"
           content="Emmanuelle Vo">
     <title><?= is_front_page() ? bloginfo('name') : wp_title('Portfolio •') ?></title>
-    <link rel="stylesheet" href="<?= pf_mix( 'css/theme.css' ) ?>">
-    <script src="<?= pf_mix( 'js/app.js' ) ?>" type="text/javascript"></script>
+    <link rel="stylesheet" href="<?= pf_mix('css/theme.css') ?>">
+    <script src="<?= pf_mix('js/app.js') ?>" type="text/javascript"></script>
 
     <?php wp_head(); ?>
     <!--Essayer de se passer de wp_head()-->
 </head>
 <body>
-
 <header class="header">
     <h1 class="header__title sro"><?= is_front_page() ? bloginfo('description') : trim(wp_title('Emmanuelle Vo | ')); ?></h1>
     <div class="header__menu menu">
         <div class="menu__logo">
-            <a href="<?= site_url(); ?>" class="top__logo-link all" title="<?= __('Retour à l’Accueil', 'pf') ?>" itemprop="mainEntityOfPage"></a>
-            <svg xmlns="http://www.w3.org/2000/svg" width="117.478" height="76.797" viewBox="0 0 117.478 76.797">
-                <g id="Groupe_22" data-name="Groupe 22" transform="translate(-231.522 -32.203)">
-                    <ellipse id="Ellipse_4" data-name="Ellipse 4" cx="43" cy="38" rx="43" ry="38"
-                             transform="translate(263 33)" fill="#a4d4ed"/>
-                    <path id="Tracé_11" data-name="Tracé 11" d="M4213.8,33.226l33.458,74.61,33.3-74.61"
-                          transform="translate(-3980)" fill="none" stroke="#000" stroke-linejoin="bevel"
-                          stroke-width="5"/>
+            <a href="<?= site_url(); ?>" class="top__logo-link all" title="<?= __('Retour à l’Accueil', 'pf') ?>"
+               itemprop="mainEntityOfPage"></a>
+            <svg xmlns="http://www.w3.org/2000/svg" width="70" height="75" viewBox="0 0 40 45">
+                <title>Logo du portfolio de Emmanuelle Vo</title>
+                <desc>La lettre V suivi d'un rond coloré, ce qui forme "VO"</desc>
+                <g id="Groupe_22" data-name="Groupe 22" transform="translate(-230 -13)">
+                    <circle id="Ellipse_4" data-name="Ellipse 4" cx="13.5" cy="13.5" r="13.5" transform="translate(243 23)" fill="#ffc0b8"/>
+                    <text id="V" transform="translate(230 49)" fill="#383f51" font-size="37" font-family="Montserrat-Light, Montserrat" font-weight="300"><tspan x="0" y="0">V</tspan></text>
                 </g>
             </svg>
+
         </div>
-        <a title="<?= __('Ouvrir le menu de navigation', 'pf'); ?>" class="burger-js burger-hidden burger" >
+        <a title="<?= __('Ouvrir le menu de navigation', 'pf'); ?>" class="burger-js burger-hidden burger">
             <p class="burger__lines"></p>
             <p class="burger__lines"></p>
             <p class="burger__lines"></p>
         </a>
-        <div class="menu-js menu-nojs" style="display: none;">
+        <div class="menu-js menu-nojs menu__wrapper" style="display: none;">
             <nav class="menu__nav nav">
                 <h2 class="nav__title sro"><?= __('Navigation principale', 'pf'); ?></h2>
                 <ul class="nav__list">
@@ -63,23 +63,20 @@
             </nav>
             <div class="menu__lang lang">
                 <h2 class="nav__lang-title sro"><?= __('Changer la langue', 'pf'); ?></h2>
-                <?php foreach(pll_the_languages(['raw' => true]) as $code => $locale): ?>
-                    <a lang="<?= $locale['locale'] ?>" hreflang="<?= $locale['locale'] ?>" href="<?= $locale['url'] ?>" title="<?= $locale['name'] ?>" class="nav__locale"><?= strtoupper($code) ?></a>
-                <?php endforeach; ?>
-
-                <p class="sro"><?= __('Le site est actuellement en', 'pf'); ?>
-                    <strong><?= pf_current_language()['name'] ?></strong></p>
-
+                <?php foreach (pll_the_languages(['raw' => true]) as $code => $locale): ?>
                 <div class="lang__container">
-                    <a href="/" class="lang__current"><?= pf_current_language()['slug'] ?></a>
-
+                    <?php if ($locale['current_lang']): ?>
+                        <p class="sro"><?= __('Le site est actuellement en', 'pf'); ?> <?= $locale['name'] ?></p>
+                        <a href="/" class="lang__current"><?= strtoupper($code) ?><span class="arrow-down arrow-js"></span></a>
+                    <?php endif; ?>
+                    <?php endforeach; ?>
                     <ul class="lang__other lang__hidden">
-                        <?php foreach (pll_the_languages() as $lang): ?>
+                        <?php foreach (pll_the_languages(['raw' => true]) as $code => $locale): ?>
                             <li class="lang__li">
-                                <a href="<?= $lang['url']; ?>" class="lang__link" hreflang="<?= $lang['locale']; ?>"
-                                   title="<?= $lang['name']; ?>"
-                                >
-                                    <?= $lang['slug']; ?>
+                                <a lang="<?= $locale['locale'] ?>" hreflang="<?= $locale['locale'] ?>"
+                                   href="<?= $locale['url'] ?>" title="<?= $locale['name'] ?>"
+                                   class="nav__locale <?php if ($locale['current_lang']): ?> current__lang <?php endif; ?>">
+                                        <?= strtoupper($code) ?>
                                 </a>
                             </li>
                         <?php endforeach; ?>
@@ -88,5 +85,4 @@
             </div>
         </div>
     </div>
-
 </header>

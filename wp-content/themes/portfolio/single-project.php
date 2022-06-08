@@ -12,46 +12,84 @@
                     </time>
                 </p>
                 <div class="project__container">
-                    <img src="#" alt="Image du projet" class="project__img">
-                    <p class="project__description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur distinctio impedit ipsam, magnam nemo sequi sunt voluptas? Dolore ducimus eligendi error, hic neque quibusdam quis repellendus tenetur. Eos, et nam.</p>
-                    <a href="#" class="project__link"><?= __('Voir le site du projet', 'pf') ?></a>
+                    <figure class="project__fig">
+                        <?= get_the_post_thumbnail( null, 'large', [
+                            'class' => 'project__img image',
+                        ] ) ?>
+                    </figure>
+
+                    <div class="project__description">
+                        <?= get_field('presentation') ?>
+                        <a href="<?= get_field('website_url') ?>" class="project__link button"><?= __('Lien vers site du projet', 'pf') ?></a>
+                    </div>
                 </div>
             </header>
 
             <section class="project__objectives objectives">
                 <h3 class="objectives__title"><?= __('Objectifs', 'pf') ?></h3>
+
                 <ul class="objectives__list">
-                    <li class="objectives__item">Objectif 1</li>
+                    <?php for ($i = 1; $i <= 4; $i++):
+                        $objective = get_field('objective-' . $i);
+                        if (!empty($objective)):
+                            ?>
+                            <li class="objectives__item"><?= $objective ?></li>
+                        <?php endif; endfor; ?>
                 </ul>
-                <p class="objectives__content"><?= get_field('objectif') ?></p>
             </section>
 
-            <!-- TODO : add images -->
+            <div class="project__photos">
+                <?php $fullSizeImg = get_field('img-full-size');
+                if (!empty($fullSizeImg)):?>
+                    <img width="100%" height="auto"
+                         class="project__photo full-size"
+                         src="<?= $fullSizeImg['sizes']['medium']; ?>" alt="<?= $fullSizeImg['alt']; ?>"
+                         srcset="<?= $fullSizeImg['sizes']['medium']; ?> 300w,
+                         <?= $fullSizeImg['sizes']['medium_large']; ?> 768w">
+                <?php endif; ?>
+                <?php for ($i = 1; $i <= 10; $i++):
+                    $mobileImg = get_field('img-phone-' . $i);
+                    if (!empty($mobileImg)):
+                        ?>
+                        <img width="100%" height="auto"
+                             class="project__photo"
+                             id="<?= $i ?>"
+                             src="<?= $mobileImg['sizes']['medium']; ?>" alt="<?= $mobileImg['alt']; ?>"
+                             srcset="<?= $mobileImg['sizes']['medium']; ?> 300w,
+                         <?= $mobileImg['sizes']['medium_large']; ?> 768w">
+                    <?php endif; endfor; ?>
+            </div>
 
 
             <section class="project__languages">
                 <h3 class="project__languages--title"><?= __('Langages utilisés', 'pf') ?></h3>
                 <ul class="project__languages--list">
-                    <li class="project__languages--item">
-                        <img src="#" alt="Logo de HTML" class="project__languages--img">
-                    </li>
+                    <?php for ($i = 1; $i <= 10; $i++):
+                        $logo = get_field('logo-' . $i);
+                        if (!empty($logo)):
+                            ?>
+                            <li class="project__languages--item">
+                                <img width="150" height="auto"
+                                     class="project__languages--logo"
+                                     id="<?= $i ?>"
+                                     src="<?= $logo['sizes']['medium']; ?>" alt="<?= $logo['alt']; ?>"
+                                     srcset="<?= $logo['sizes']['medium']; ?> 300w,
+                         <?= $logo['sizes']['medium_large']; ?> 768w">
+                            </li>
+                        <?php endif; endfor; ?>
                 </ul>
             </section>
-
-            <div class="project__excerpt">
-                <p><?= the_content() ?></p>
-            </div>
-
-            <div class="single-project__actions">
-                <div class="actions__container">
-                    <a href="#" class="button single-project__button"><?= __('Précédent', 'pf') ?></a>
-                    <a href="#" class="button single-project__button"><?= __('Suivant', 'pf') ?></a>
-                </div>
-                <a href="#" class="button single-project__button"><?= __('Voir tous les projets', 'pf') ?></a>
-            </div>
         </article>
+        <div class="single-project__actions">
+            <div class="actions__container">
+                <?php previous_post_link('%link', __('Précédent', 'pf')) ?>
+                <?php next_post_link('%link', __('Suivant', 'pf')) ?>
+                <a href="<?= get_post_type_archive_link('project') ?>"
+                   class="button single-project__button see-all"><?= __('Voir tous les projets', 'pf') ?></a>
+            </div>
+        </div>
 
-        <?php include 'partials/_contact-section.php'?>
+        <?php include 'partials/_contact-section.php' ?>
     </main>
 <?php endwhile; endif; ?>
 

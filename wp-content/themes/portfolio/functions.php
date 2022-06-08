@@ -56,6 +56,7 @@ function pf_custom_post_type() {
         'rewrite' => [
             'slug' => 'projets'
         ],
+        'has_archive' => true,
     ]);
 
     register_post_type('bio', [
@@ -228,6 +229,38 @@ function pf_custom_navigation_menus() {
 
 
 /* *****
+ * SVG support
+ * *****/
+
+add_filter( 'wp_check_filetype_and_ext', function($data, $file, $filename, $mimes) {
+    $filetype = wp_check_filetype( $filename, $mimes );
+    return [
+        'ext'             => $filetype['ext'],
+        'type'            => $filetype['type'],
+        'proper_filename' => $data['proper_filename']
+    ];
+
+}, 10, 4 );
+
+function cc_mime_types( $mimes ){
+    $mimes['svg'] = 'image/svg+xml';
+    return $mimes;
+}
+add_filter( 'upload_mimes', 'cc_mime_types' );
+
+function fix_svg() {
+    echo '<style type="text/css">
+        .attachment-266x266, .thumbnail img {
+             width: 100% !important;
+             height: auto !important;
+        }
+        </style>';
+}
+add_action( 'admin_head', 'fix_svg' );
+
+
+
+/* *****
  * Handle Contact Form
  * *****/
 
@@ -359,6 +392,78 @@ function pf_get_template_page(string $template) {
     // Retourner la première occurrance pour cette requête ou null
     return $query->posts[0] ?? null;
 }
+
+
+
+/* *****
+ * Custom header
+ * *****/
+
+// Remove emojis
+function disable_emojis_wp_head() {
+    remove_action( 'wp_head', 'print_emoji_detection_script', 7 );
+    remove_action( 'admin_print_scripts', 'print_emoji_detection_script' );
+    remove_action( 'wp_print_styles', 'print_emoji_styles' );
+    remove_action( 'admin_print_styles', 'print_emoji_styles' );
+    remove_filter( 'the_content_feed', 'wp_staticize_emoji' );
+    remove_filter( 'comment_text_rss', 'wp_staticize_emoji' );
+    remove_filter( 'wp_mail', 'wp_staticize_emoji_for_email' );
+    add_filter( 'tiny_mce_plugins', 'disable_emojis_wp_tinymce' );
+}
+add_action( 'init', 'disable_emojis_wp_head' );
+
+function disable_emojis_wp_tinymce( $plugins ) {
+    if ( is_array( $plugins ) ) {
+        return array_diff( $plugins, array( 'wpemoji' ) );
+    } else {
+        return array();
+    }
+}
+
+// Remove other crap in your example
+add_action( 'get_header', function() {
+    remove_action('wp_head', 'rsd_link'); // Really Simple Discovery service endpoint, EditURI link
+    remove_action('wp_head', 'wp_generator'); // XHTML generator that is generated on the wp_head hook, WP version
+    remove_action('wp_head', 'feed_links', 2); // Display the links to the general feeds: Post and Comment Feed
+    remove_action('wp_head', 'index_rel_link'); // index link
+    remove_action('wp_head', 'wlwmanifest_link'); // Display the link to the Windows Live Writer manifest file.
+    remove_action('wp_head', 'feed_links_extra', 3); // Display the links to the extra feeds such as category feeds
+    remove_action('wp_head', 'start_post_rel_link', 10, 0); // start link
+    remove_action('wp_head', 'parent_post_rel_link', 10, 0); // prev link
+    remove_action('wp_head', 'adjacent_posts_rel_link', 10, 0); // relational links 4 the posts adjacent 2 the currentpost
+    remove_action('template_redirect', 'wp_shortlink_header', 11);
+    remove_action('wp_head', 'adjacent_posts_rel_link_wp_head', 10, 0 );
+}, 99);
+
+// Remove adminbar inline css on frontend
+function removeinline_adminbar_css_frontend() {
+    if ( has_filter( 'wp_head', '_admin_bar_bump_cb' ) ){
+        remove_filter( 'wp_head', '_admin_bar_bump_cb' );
+    }
+}
+add_filter( 'wp_head', 'removeinline_adminbar_css_frontend', 1 );
+
+
+
+
+/* *****
+ * Next and previous post link
+ * *****/
+
+function add_class_next_post_link($html){
+    $html = str_replace('<a','<a class="next button single-project__button"',$html);
+    return $html;
+}
+add_filter('next_post_link','add_class_next_post_link',10,1);
+
+function add_class_previous_post_link($html){
+    $html = str_replace('<a','<a class="last button single-project__button"',$html);
+    return $html;
+}
+add_filter('previous_post_link','add_class_previous_post_link',10,1);
+
+
+
 
 
 /* *****
