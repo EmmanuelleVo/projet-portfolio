@@ -462,7 +462,11 @@ function add_class_previous_post_link($html){
 }
 add_filter('previous_post_link','add_class_previous_post_link',10,1);
 
+/* *****
+ * Mailgun
+ * *****/
 
+$mgClient = 
 
 
 

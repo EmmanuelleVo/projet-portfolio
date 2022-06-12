@@ -12,10 +12,12 @@
     }
 
     &__data {
-      margin-bottom: rem($vertical_align_30);
+      margin-bottom: rem($vertical_align_20);
     }
     &__date {
       font-weight: 600;
+      font-size: 0.75em;
+      font-family: 'Raleway', sans-serif;
     }
     &__container {
     }
@@ -61,6 +63,7 @@
         &:hover, &:focus {
           &:before {
             background-color: $main_color;
+            transition: .2s ease-in;
           }
         }
       }
@@ -85,11 +88,18 @@
         opacity: .7;
         &:hover {
           opacity: 1;
+          transition: .2s ease-in;
         }
       }
       &--logo {
         width: 5em;
       }
+    }
+
+    .project__photos {
+      @include global-spacing;
+      margin-top: rem($vertical_align_50);
+
     }
 
   }
@@ -174,4 +184,24 @@
       }
     }
   }
+}
+
+
+@media (min-width: 1200px) {
+  .single-project {
+    .project {
+      &__title {
+        padding-left: unset;
+        padding-right: unset;
+        width: unset;
+      }
+
+      &__head {
+        padding-left: unset;
+        padding-right: unset;
+        width: unset;
+      }
+    }
+  }
+
 }

@@ -13,8 +13,13 @@
 }
 
 html {
-  font-size: 18px;
+  font-size: 16px;
   margin: 0;
+}
+@media (min-width: 749px) {
+  html {
+    font-size: 18px;
+  }
 }
 
 body {
@@ -56,28 +61,35 @@ a {
   @include button()
 }
 
-@font-face {
+/*@font-face {
   font-family: "Calibre";
   src: url("../fonts/Calibre.woff") format("woff");
   src: url("../fonts/Calibre.woff2") format("woff2");
   font-display: swap;
-}
-@font-face {
-  font-family: "TAN - PEARL";
-  src: url("./../fonts/TAN-PEARL.woff") format("woff");
-  src: url("./../fonts/TAN-PEARL.woff2") format("woff2");
-  font-display: swap;
-}
+}*/
 
 
-h1, h2, h3, h4, a, p, input, label, dd, dt, span {
+
+h1, h2, h3, h4, a, p, input, label, dd, dt, span, textarea {
   color: $dark_color;
 }
 p {
-  font-family: "TAN - PEARL", sans-serif;
+  font-family: Georgia, serif;
 }
 .image {
   width: 100%;
   height: auto;
   object-fit: cover;
+}
+
+
+.hidden.show {
+  opacity: 1;
+  transform: none;
+
+}
+.hidden {
+  transition: ease-in-out .5s;
+  opacity: 0;
+  transform: translateY(2em);
 }

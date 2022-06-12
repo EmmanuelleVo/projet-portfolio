@@ -1,9 +1,11 @@
 .projects {
   z-index: 4;
+
   .page__title {
     @include global-spacing;
     margin-bottom: rem($vertical_align_50);
   }
+
   .projects__container {
     @include global-spacing;
     margin-bottom: rem($vertical_align_30);
@@ -15,22 +17,30 @@
     .project__card {
       display: grid;
       position: relative;
+
       img {
         transition: .3s ease-in-out;
         opacity: 1;
       }
+
       &:hover, &:focus {
         .project__wrapper {
           background-color: rgba(0, 0, 0, 0);
+          transition: .2s ease-in;
         }
+
         .project__title {
           color: black;
+          transition: .2s ease-in;
         }
+
         img {
           //transform: scale(1.1);
           opacity: .4;
+          transition: .2s ease-in;
         }
       }
+
       .project__wrapper {
         position: absolute;
         bottom: 5px;
@@ -42,6 +52,7 @@
         border-top-left-radius: 50%;
         border-top-right-radius: 50%;
       }
+
       .project__title {
         /*position: absolute;
         bottom: 10px;
@@ -54,6 +65,7 @@
         width: fit-content;
         z-index: 3;
       }
+
       .project__link {
         z-index: 10;
       }
@@ -67,13 +79,12 @@
 }
 
 
-
 @media (min-width: 769px) {
   .projects {
     &__container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    grid-gap: 1rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      grid-gap: 1rem;
     }
   }
 }
@@ -84,10 +95,11 @@
       max-width: 1199px;
       margin: 0 auto rem($vertical_align_50);
     }
-    .projects__container {
 
-    margin: 0 auto;
-    max-width: 1199px;
+    .projects__container {
+      margin: 0 auto;
+      max-width: 1199px;
+      margin-bottom: rem($vertical_align_30);
     }
   }
 

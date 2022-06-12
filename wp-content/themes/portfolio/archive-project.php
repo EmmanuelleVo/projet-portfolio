@@ -1,7 +1,7 @@
 <?php get_header(); ?>
     <main class="layout projects">
         <section class="layout__projects projects">
-            <h2 class="projects__title"><?= __('Tous mes projets', 'pf'); ?>archive</h2>
+            <h2 class="projects__title"><?= __('Tous mes projets', 'pf'); ?></h2>
             <nav class="projects__filters">
                 <h3 class="sro"><?= __('Filtrer les résultats', 'pf'); ?></h3>
                 <?php foreach(get_terms(['taxonomy' => 'country', 'hide_empty' => true]) as $term) : ?>

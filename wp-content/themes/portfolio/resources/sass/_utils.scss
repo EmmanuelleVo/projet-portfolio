@@ -161,6 +161,7 @@ $fonts-stack: (
   &:hover {
     background-color: $second_color;
     color: $dark;
+    transition: .2s ease-in;
   }
 }
 

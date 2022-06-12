@@ -65,11 +65,13 @@
         &:focus {
           border-color: $main_color;
           color: $dark_color;
+          transition: .2s ease-in;
         }
       }
 
       textarea {
         padding: rem(10);
+        font-size: rem(18);
         border: $dark_color 1px solid;
       }
 

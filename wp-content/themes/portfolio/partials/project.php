@@ -1,5 +1,5 @@
 <article class="project project--<?= $modifier ?>">
-    <div class="project__card">
+    <div class="project__card hidden">
         <a href="<?= get_the_permalink() ?>"
            class="project__link all">
             <span class="sro"><?= str_replace(':title', get_the_title(), __('Lire l’article ":title"', 'pf')) ?></span>

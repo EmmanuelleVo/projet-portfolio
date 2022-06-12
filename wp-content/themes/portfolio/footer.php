@@ -1,7 +1,7 @@
 <footer class="footer">
     <h2 class="footer__title sro"><?= __('Pied-de-page', 'pf') ?></h2>
 
-    <div class="footer__container">
+    <div class="footer__container hidden">
         <nav class="footer__nav">
             <h2 class="nav__title sro"><?= __('Navigation de pied-de-page', 'pf') ?></h2>
             <ul class="nav__list">
@@ -14,20 +14,20 @@
         </nav>
 
         <div class="footer__languages">
-            <?php foreach(pll_the_languages(['raw' => true]) as $code => $locale): ?>
+            <?php foreach (pll_the_languages(['raw' => true]) as $code => $locale): ?>
                 <a lang="<?= $locale['locale'] ?>"
                    hreflang="<?= $locale['locale'] ?>"
                    href="<?= $locale['url'] ?>"
                    title="<?= $locale['name'] ?>"
-                   class="nav__locale <?php if($locale['current_lang']): ?> current__lang <?php endif; ?>">
+                   class="nav__locale <?php if ($locale['current_lang']): ?> current__lang <?php endif; ?>">
                     <?= strtoupper($code) ?></a>
             <?php endforeach; ?>
         </div>
     </div>
 
-    <div class="footer__social">
+    <div class="footer__social hidden">
         <div class="social__container">
-            <a href="#" class="footer__linkedin footer__logo"><span class="sro"><?= __('Linkedin', 'pf') ?></span></a>
+            <a href="https://www.linkedin.com/in/emmanuelle-vo-bb01a3226/" class="footer__linkedin footer__logo"><span class="sro"><?= __('Linkedin', 'pf') ?></span></a>
             <svg xmlns="http://www.w3.org/2000/svg" width="24.929" height="24.929"
                  viewBox="0 0 24.929 24.929">
                 <title>LinkedIn</title>
@@ -38,7 +38,7 @@
             </svg>
         </div>
         <div class="social__container">
-            <a href="#" class="footer__github footer__logo"><span class="sro"><?= __('GitHub', 'pf') ?></span></a>
+            <a href="https://github.com/EmmanuelleVo" class="footer__github footer__logo"><span class="sro"><?= __('GitHub', 'pf') ?></span></a>
             <svg xmlns="http://www.w3.org/2000/svg" width="24.929" height="24.306"
                  viewBox="0 0 24.929 24.306">
                 <title>GitHub</title>
@@ -50,7 +50,7 @@
         </div>
     </div>
 
-    <p class="footer__copyright"><?= __('Copyright © - Emmanuelle Vo - 2022.', 'pf') ?></p>
+    <p class="footer__copyright hidden"><?= __('Copyright © - Emmanuelle Vo - 2022.', 'pf') ?></p>
 </footer>
 
 <script type="application/ld+json">

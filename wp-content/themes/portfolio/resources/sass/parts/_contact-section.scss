@@ -23,20 +23,22 @@
       content:" ";
       display:block;
       position:absolute;
-      border-bottom:solid 3px #ddd;
       bottom:0;
-      width:0;
-      left:50%;
       margin:0 auto;
       transition:all 0.5s;
       z-index:-1;
-    }
-
-
-    &:hover, &:focus {
-      border-bottom:solid 3px #000;
+      border-bottom:solid 3px $dark_color;
       width: 100%;
       left: 0;
+      //width:0;
+      //left:50%;
+    }
+
+    &:hover, &:focus {
+      /*transition: .2s ease-in;
+      border-bottom:solid 3px #000;
+      width: 100%;
+      left: 0;*/
     }
   }
 

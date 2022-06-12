@@ -56,10 +56,14 @@
     box-shadow: $dark_color 0 1px 4px -2px;
   }
 
+  .lang__li {
+    min-width: 80px;
+  }
+
   &__li + &__li {
     //padding: 0.5rem 1.5rem;
     //background-color: white;
-    margin-top: 1.4rem;
+    margin-top: 1rem;
     /*&:hover, &:focus {
       background-color: $light-grey;
     }*/
@@ -72,11 +76,13 @@
     background-color: white;
     transition: all 0.2s;
     text-decoration: none;
+    min-width: 80px;
 
     &:hover, &:focus {
       color: $dark_color;
       background-color: $light-grey;
       box-shadow: 0 0 10px rgba(255, 255, 255, 0.75);
+      transition: .2s ease-in;
     }
 
     .current__lang {

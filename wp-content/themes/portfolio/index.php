@@ -25,25 +25,27 @@
             </div>
         </section>
 
-        <section class="layout__last-project last-project">
+        <section class="layout__last-project last-project projects">
             <div class="big-screen">
-
-                <h2 class="last-project__title"><?= __('Mes projets', 'pf') ?></h2>
+                <div class="last__project--wrapper">
+                    <h2 class="last-project__title"><?= __('Mes projets', 'pf') ?></h2>
+                    <a href="<?= get_post_type_archive_link('project') ?>"
+                       class="last-project__button projects__all button"><?= __('Voir tous mes projets', 'pf') ?></a>
+                </div>
+                <div class="last-project__container projects__container">
                 <?php
-                $projects = pf_get_projects(1);
+                $projects = pf_get_projects(3);
                 if (($projects)->have_posts()) : while ($projects->have_posts()) : $projects->the_post();
-                    pf_include('project', ['modifier' => 'index']); ?>
+                    pf_include('project', ['modifier' => 'archive']); ?>
 
                 <?php endwhile; else : ?>
                     <p class="last-project__empty empty"><?= __('Il n’y a pas encore de projet pour le moment', 'pf') ?></p>
                 <?php endif; ?>
-                <a href="<?= get_post_type_archive_link('project') ?>"
-                   class="last-project__button projects__all button"><?= __('Voir tous mes projets', 'pf') ?></a>
+                </div>
+
             </div>
         </section>
-        <div class="big-screen">
             <?php include 'partials/_contact-section.php' ?>
-        </div>
     </main>
 
 <?php get_footer() ?>

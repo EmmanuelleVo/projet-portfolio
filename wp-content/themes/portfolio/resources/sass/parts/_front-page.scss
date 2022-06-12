@@ -32,11 +32,15 @@
 
 .last-project {
   background-color: $dark_color;
-  //@include global-spacing;
   padding: rem($vertical_align_30) 24px;
   &__title {
     color: $white_color;
     margin-bottom: rem($vertical_align_30);
+  }
+  .last__project--wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
   }
   &__link {
     background-color: $white_color;
@@ -49,7 +53,11 @@
   &__empty {
     color: $white_color;
   }
+  .last-project__container.projects__container {
+    padding: unset;
+  }
 }
+
 
 
 

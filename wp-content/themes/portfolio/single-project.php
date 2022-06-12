@@ -4,41 +4,47 @@
 <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
     <main class="layout single-project">
         <article class="project">
-            <h2 class="layout__title project__title"><?= get_the_title() ?></h2>
-            <header class="project__head">
-                <p class="project__data">
-                    <time class="project__date" datetime="<?= date('c', strtotime(get_field('date', false, false))) ?>">
-                        <?= ucwords(date_i18n('l, j F Y', strtotime(get_field('date', false, false)))) ?>
-                    </time>
-                </p>
-                <div class="project__container">
-                    <figure class="project__fig">
-                        <?= get_the_post_thumbnail( null, 'large', [
-                            'class' => 'project__img image',
-                        ] ) ?>
-                    </figure>
+            <div class="big-screen">
+                <h2 class="layout__title project__title"><?= get_the_title() ?></h2>
+                <header class="project__head">
+                    <p class="project__data">
+                        <time class="project__date"
+                              datetime="<?= date('c', strtotime(get_field('date', false, false))) ?>">
+                            <?= ucwords(date_i18n('j F Y', strtotime(get_field('date', false, false)))) ?>
+                        </time>
+                    </p>
+                    <div class="project__container">
+                        <figure class="project__fig">
+                            <?= get_the_post_thumbnail(null, 'large', [
+                                'class' => 'project__img image',
+                            ]) ?>
+                        </figure>
 
-                    <div class="project__description">
-                        <?= get_field('presentation') ?>
-                        <a href="<?= get_field('website_url') ?>" class="project__link button"><?= __('Lien vers site du projet', 'pf') ?></a>
+                        <div class="project__description">
+                            <?= get_field('presentation') ?>
+                            <a href="<?= get_field('website_url') ?>"
+                               class="project__link button"><?= __('Lien vers site du projet', 'pf') ?></a>
+                        </div>
                     </div>
-                </div>
-            </header>
+                </header>
+            </div>
 
             <section class="project__objectives objectives">
-                <h3 class="objectives__title"><?= __('Objectifs', 'pf') ?></h3>
+                <div class="big-screen">
+                    <h3 class="objectives__title"><?= __('Objectifs', 'pf') ?></h3>
 
-                <ul class="objectives__list">
-                    <?php for ($i = 1; $i <= 4; $i++):
-                        $objective = get_field('objective-' . $i);
-                        if (!empty($objective)):
-                            ?>
-                            <li class="objectives__item"><?= $objective ?></li>
-                        <?php endif; endfor; ?>
-                </ul>
+                    <ul class="objectives__list">
+                        <?php for ($i = 1; $i <= 4; $i++):
+                            $objective = get_field('objective-' . $i);
+                            if (!empty($objective)):
+                                ?>
+                                <li class="objectives__item"><?= $objective ?></li>
+                            <?php endif; endfor; ?>
+                    </ul>
+                </div>
             </section>
 
-            <div class="project__photos">
+            <div class="project__photos big-screen">
                 <?php $fullSizeImg = get_field('img-full-size');
                 if (!empty($fullSizeImg)):?>
                     <img width="100%" height="auto"
@@ -61,7 +67,7 @@
             </div>
 
 
-            <section class="project__languages">
+            <section class="project__languages big-screen">
                 <h3 class="project__languages--title"><?= __('Langages utilisés', 'pf') ?></h3>
                 <ul class="project__languages--list">
                     <?php for ($i = 1; $i <= 10; $i++):
@@ -80,7 +86,7 @@
                 </ul>
             </section>
         </article>
-        <div class="single-project__actions">
+        <div class="single-project__actions big-screen">
             <div class="actions__container">
                 <?php previous_post_link('%link', __('Précédent', 'pf')) ?>
                 <?php next_post_link('%link', __('Suivant', 'pf')) ?>
