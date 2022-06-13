@@ -12,7 +12,7 @@
             <div class="about__container">
                 <?php ?>
                 <figure class="about__fig hidden">
-                    <?= get_the_post_thumbnail(null, 'medium', [
+                    <?= get_the_post_thumbnail(null, 'large', [
                         'class' => 'about__img image',
                     ]) ?>
                 </figure>

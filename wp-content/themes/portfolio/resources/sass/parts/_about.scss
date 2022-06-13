@@ -15,9 +15,8 @@
 
     }
 
-    &__bio {
-      .bio__container {
-      }
+    .bio__container {
+      margin-bottom: rem($vertical_align_30);
     }
 
     .bio__content {

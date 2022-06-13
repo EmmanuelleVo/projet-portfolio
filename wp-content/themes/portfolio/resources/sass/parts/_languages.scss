@@ -61,12 +61,8 @@
   }
 
   &__li + &__li {
-    //padding: 0.5rem 1.5rem;
-    //background-color: white;
     margin-top: 1rem;
-    /*&:hover, &:focus {
-      background-color: $light-grey;
-    }*/
+
   }
 
   .nav__locale {

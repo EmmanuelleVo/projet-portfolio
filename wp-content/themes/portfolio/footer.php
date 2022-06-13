@@ -27,7 +27,7 @@
 
     <div class="footer__social hidden">
         <div class="social__container">
-            <a href="https://www.linkedin.com/in/emmanuelle-vo-bb01a3226/" class="footer__linkedin footer__logo"><span class="sro"><?= __('Linkedin', 'pf') ?></span></a>
+            <a href="https://www.linkedin.com/in/emmanuelle-vo-bb01a3226/?originalSubdomain=be" class="footer__linkedin footer__logo"><span class="sro"><?= __('Linkedin', 'pf') ?></span></a>
             <svg xmlns="http://www.w3.org/2000/svg" width="24.929" height="24.929"
                  viewBox="0 0 24.929 24.929">
                 <title>LinkedIn</title>

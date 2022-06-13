@@ -56,6 +56,22 @@
   .last-project__container.projects__container {
     padding: unset;
   }
+
+  .project__card {
+    :hover, &:focus {
+      .project__title {
+        background-color: blue;
+        color: $white_color;
+      }
+    }
+  }
+  .project__wrapper {
+    .project__title {
+      :hover, &:focus {
+        color: $white_color;
+      }
+    }
+  }
 }
 
 

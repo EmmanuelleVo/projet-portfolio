@@ -6,10 +6,6 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <!-- TODO META-DESCRIPTION DIFFERENTES ET UNIQUES POUR TOUTES LES PAGES -->
-    <meta name="description"
-          content="<?= __('Portfolio de Emmanuelle Vo, web designer. Créé en 2022.', 'pf') ?>">
-    <meta name="keywords"
-          content="<?= __('portfolio, Vo, Emmanuelle, web, design, designer, développement, développeur, projet', 'pf') ?>">
     <meta name="author"
           content="Emmanuelle Vo">
     <title><?= is_front_page() ? bloginfo('name') : wp_title('Portfolio •') ?></title>

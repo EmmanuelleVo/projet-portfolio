@@ -27,7 +27,9 @@
                             </svg>
 
                         </dt>
-                        <dd class="contact__mail--definition">voemmanuelle@gmail.com</dd>
+                        <dd class="contact__mail--definition">
+                            <a href="mailto: voemmanuelle@gmail.com" class="contact__mail--link">voemmanuelle@gmail.com</a>
+                        </dd>
                     </div>
                     <div class="contact__data">
 
@@ -43,7 +45,9 @@
 
 
                         </dt>
-                        <dd class="contact__tel--definition">+32498624815</dd>
+                        <dd class="contact__tel--definition">
+                            <a href="tel:+32498624815" class="contact__tel--link">+32498624815</a>
+                        </dd>
                     </div>
                     <div class="contact__data">
                         <dt class="contact__linkedin"><span class="sro"><?= __('LinkedIn', 'pf') ?>: </span>
@@ -59,7 +63,7 @@
 
                         </dt>
                         <dd class="contact__linkedin--definition">
-                            <a href="#" class="contact__linkedin--link"><?= __('LinkedIn', 'pf') ?></a></dd>
+                            <a href="https://www.linkedin.com/in/emmanuelle-vo-bb01a3226/?originalSubdomain=be" class="contact__linkedin--link"><?= __('LinkedIn', 'pf') ?></a></dd>
                     </div>
                     <div class="contact__data">
                         <dt class="contact__github"><span class="sro"><?= __('GitHub', 'pf') ?>: </span>
@@ -74,7 +78,7 @@
 
                         </dt>
                         <dd class="contact__github--definition">
-                            <a href="#" class="contact__github--link"><?= __('GitHub', 'pf') ?></a>
+                            <a href="https://github.com/EmmanuelleVo" class="contact__github--link"><?= __('GitHub', 'pf') ?></a>
                         </dd>
                     </div>
                 </dl>

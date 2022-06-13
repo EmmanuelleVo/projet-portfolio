@@ -52,6 +52,8 @@
 
     &__item{
       margin: 1rem 0;
+      padding: unset;
+      text-align: center;
       &::before{
         display: none;
       }
@@ -85,7 +87,10 @@
       z-index: 0;
     }
     &__li + &__li{
-      margin-left: 0.5rem;
+      //margin-left: 0.5rem;
+    }
+    &__li {
+      min-width: unset;
     }
   }
   .burger{

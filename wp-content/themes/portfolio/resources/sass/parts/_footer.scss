@@ -28,7 +28,6 @@
     margin-bottom: rem($vertical_align_30);
     .nav__locale {
       &:hover, &:focus {
-        text-decoration: underline;
         color: $main_color;
         transition: .2s ease-in;
       }

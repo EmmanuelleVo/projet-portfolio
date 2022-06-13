@@ -88,12 +88,6 @@
     list-style: none;
     position: relative;
 
-    /*&:after{
-      padding: 0 1rem;
-      content: '\2022';
-      font-size: 0.75rem;
-      color: $main_color;
-    }*/
   }
 
   &__item--current {
@@ -103,7 +97,7 @@
     &:before {
       padding: 0 .5rem;
       content: '\2022';
-      font-size: 0.75rem;
+      font-size: 1rem;
       color: $main_color;
     }
   }
@@ -111,10 +105,11 @@
   &__link {
     color: $dark_color;
     text-decoration: none;
+    transform: scale(1);
 
     &:hover, &:focus {
       cursor: pointer;
-      text-decoration: underline;
+      transform: scale(1.3);
       color: $main_color;
       transition: .2s ease-in;
     }

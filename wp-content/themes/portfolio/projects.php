@@ -2,7 +2,7 @@
 <?php get_header() ?>
 
     <main class="layout projects">
-        <h1 class="page__title projects__title"><?= __('Mes projets', 'pf') ?> pas archive-project</h1>
+        <h1 class="page__title projects__title"><?= __('Mes projets', 'pf') ?></h1>
         <div class="projects__container">
             <?php
             $projects = pf_get_projects(9);

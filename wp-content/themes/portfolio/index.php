@@ -16,9 +16,9 @@
                 <div class="circle__ten circle right"></div>
             </div>
             <div class="intro__container big-screen">
-                <h2 class="intro__title"><span class="intro__name">Emmanuelle Vo,</span> <span
-                            class="intro__job"><?= __('Web Designer', 'pf') ?></span></h2>
-                <div class="intro__link">
+                <h2 class="intro__title"><span class="intro__name hidden">Emmanuelle Vo,</span> <span
+                            class="intro__job hidden"><?= __('Web Designer', 'pf') ?></span></h2>
+                <div class="intro__link hidden">
                     <a href="<?= get_permalink(pf_get_template_page('about')) ?>"
                        class="intro__button button"><?= __('En savoir plus', 'pf') ?></a>
                 </div>
